@@ -1,0 +1,53 @@
+<div class="product">
+  <div class="product-content">
+    <ng-container [ngTemplateOutlet]="productImg" ></ng-container>
+    <ng-container [ngTemplateOutlet]="buttons"></ng-container>
+  </div>
+  <ng-container [ngTemplateOutlet]="productInfo"></ng-container>
+  <ng-container [ngTemplateOutlet]="offInfo"></ng-container>
+</div>
+
+<!--product image-->
+<ng-template #productImg>
+  <div class="product-image">
+    <img src="../assets/images/shoe-1.png" alt="shoes">
+  </div>
+</ng-template>
+<!--product img end-->
+
+<ng-template #buttons>
+  <div class="product-btns">
+    <button type="button>" class="btn-cart">Add To Cart <span> <i class="fas fa-plus"></i> </span></button>
+    <button type="button>" class="btn-buy">Buy Now<span> <i class="fas fa-shopping-cart"></i> </span></button>
+  </div>
+</ng-template>
+
+<ng-template #productInfo>
+  <div class="product-info">
+    <div class="product-info-top">
+      <h2 class="sm-title">Life Style</h2>
+      <ng-container [ngTemplateOutlet]="ratingTpl"></ng-container>
+      .
+    </div>
+    <a href="#" class="product-name">Mens shoes DN12</a>
+    <p class="product-price">$ 150</p>
+    <p class="product-price">$ 130</p>
+  </div>
+</ng-template>
+
+<ng-template #offInfo>
+  <div class="off-info">
+    <h2 class="sm-title"> 25% off</h2>
+  </div>
+</ng-template>
+
+<ng-template #ratingTpl>
+  <div class="rating">
+    <span><i class="fas fa-star"></i></span>
+    <span><i class="fas fa-star"></i></span>
+    <span><i class="fas fa-star"></i></span>
+    <span><i class="fas fa-star"></i></span>
+    <span><i class="far fa-star"></i></span>
+  </div>
+</ng-template>
+

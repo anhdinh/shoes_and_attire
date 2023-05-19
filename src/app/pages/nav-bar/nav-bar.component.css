@@ -1,0 +1,17 @@
+.nav-search-input{
+  box-shadow: none;
+  border:none;
+
+}
+
+.nav-search-box{
+  border: 1px solid #D1D5DB;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.right-nav-box > *{
+  margin-right: 20px;
+}

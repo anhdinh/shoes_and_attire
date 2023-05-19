@@ -1,0 +1,23 @@
+<div class="products">
+  <div class="container">
+    <ng-container [ngTemplateOutlet]="productsHeaderPage" ></ng-container>
+    <div class="product-items">
+      <div class="row">
+          <div *ngFor="let product of products" class="col-xl-3 mt-3">
+            <app-single-product></app-single-product>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<ng-template #productsHeaderPage>
+    <h1 class="lg-title">Special Shoes with offers</h1>
+    <p class="text-light text-dark">Lorem ipsum dolor sit amet,
+      consectetur adipisicing elit. Architecto corporis
+      culpa, delectus distinctio dolor ducimus eum ex
+      exercitationem minus, molestiae neque nihil sint tenetur veniam.</p>
+</ng-template>
+
