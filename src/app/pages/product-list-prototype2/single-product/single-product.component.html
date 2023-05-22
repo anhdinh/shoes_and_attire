@@ -29,7 +29,7 @@
       <ng-container [ngTemplateOutlet]="ratingTpl"></ng-container>
       .
     </div>
-    <a href="#" class="product-name">Mens shoes DN12</a>
+    <a href="#" class="product-name">{{product.title}}</a>
     <p class="product-price">$ 150</p>
     <p class="product-price">$ 130</p>
   </div>
@@ -43,11 +43,9 @@
 
 <ng-template #ratingTpl>
   <div class="rating">
-    <span><i class="fas fa-star"></i></span>
-    <span><i class="fas fa-star"></i></span>
-    <span><i class="fas fa-star"></i></span>
-    <span><i class="fas fa-star"></i></span>
-    <span><i class="far fa-star"></i></span>
+    <span *ngFor="let star of stars">
+      <i  [ngClass]="{'fas': star<=product.rating,'far':star>product.rating}" class="fa-star"></i>
+    </span>
   </div>
 </ng-template>
 

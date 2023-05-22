@@ -1,23 +1,46 @@
 <div class="products">
   <div class="container">
-    <ng-container [ngTemplateOutlet]="productsHeaderPage" ></ng-container>
-    <div class="product-items">
-      <div class="row">
-          <div *ngFor="let product of products" class="col-xl-3 mt-3">
-            <app-single-product></app-single-product>
-          </div>
+    <ng-container [ngTemplateOutlet]="productsHeaderPage"></ng-container>
+    <ng-template [ngIf]="isLoadingData" [ngIfElse]="productTpl">
+      <div class="row flex-lg-row justify-content-center">
+        <div class="lds-dual-ring"></div>
       </div>
-    </div>
+    </ng-template>
+    <ng-template #productTpl>
+      <div #data class="product-items">
+        <div class="row">
+          <div *ngFor="let product of productsPerPage" class="col-xl-3 mt-3">
+            <app-single-product [product] = "product"></app-single-product>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <nav class="mt-5" aria-label="navigation">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li *ngFor="let page of pagesNumber" class="page-item">
+            <a class="page-link" [ngClass]="{'disabled':page==currentPage}"
+               (click)="getProductByPageNumber(page)">{{page}}
+            </a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </nav>
 
   </div>
 </div>
 
 
 <ng-template #productsHeaderPage>
-    <h1 class="lg-title">Special Shoes with offers</h1>
-    <p class="text-light text-dark">Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Architecto corporis
-      culpa, delectus distinctio dolor ducimus eum ex
-      exercitationem minus, molestiae neque nihil sint tenetur veniam.</p>
+  <h1 class="lg-title">Special Shoes with offers</h1>
+  <p class="text-light text-dark">Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit. Architecto corporis
+    culpa, delectus distinctio dolor ducimus eum ex
+    exercitationem minus, molestiae neque nihil sint tenetur veniam.</p>
 </ng-template>
 

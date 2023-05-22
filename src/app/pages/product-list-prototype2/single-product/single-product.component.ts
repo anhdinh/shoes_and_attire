@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {ProductModel} from "../../../services/model/ProductModel";
 
 @Component({
   selector: 'app-single-product',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./single-product.component.css']
 })
 export class SingleProductComponent {
-
+  @Input() product!:ProductModel;
+  stars = [1,2,3,4,5];
 }

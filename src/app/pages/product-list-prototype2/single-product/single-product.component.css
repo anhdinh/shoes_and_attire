@@ -15,7 +15,7 @@
 }
 
 img{
-  width: 70%;
+  width: 100%;
   display:block;
 }
 
@@ -51,6 +51,16 @@ img{
   text-transform: uppercase;
 }
 
+.product-image{
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
+  width: 200px;
+  height: 200px;
+  margin:0 auto;
+  border-radius: 50%;
+  transition: background 0.5s ease;
+}
+
 .product-btns{
   display: flex;
   justify-content: center;
@@ -82,6 +92,11 @@ img{
 .product:hover .product-btns{
   opacity: 1;
 }
+
+.product:hover .product-image{
+  background: #40c9a2;
+}
+
 
 .product-info{
   background-color:white;
