@@ -1,0 +1,48 @@
+
+
+<div class="container">
+  <div class="row"><h1>Product</h1></div>
+  <form [formGroup]="productForm">
+    <div class="form-group">
+      <label for="title">title</label>
+      <input type="text" class="form-control" formControlName="title" id="title">
+    </div>
+    <div class="form-group">
+      <label for="description">description</label>
+      <input type="text" class="form-control" formControlName="description" id="description">
+    </div>
+    <div class="form-group">
+      <label for="discountPercentage">Discount Percentage</label>
+      <input type="number" max="100" min="0" class="form-control" formControlName="discountPercentage" id="discountPercentage">
+    </div>
+    <div class="form-group">
+      <label for="ratting">ratting</label>
+      <select id="ratting" formControlName="ratting" class="form-control w-25 justify-content-end">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="stock">stock</label>
+      <input type="number"  formControlName="stock" class="form-control" id="stock">
+    </div>
+    <div class="form-group">
+      <label for="brand">brand</label>
+      <input type="text" formControlName="brand"   class="form-control" id="brand">
+    </div>
+    <div class="form-group">
+      <label for="category">category</label>
+      <input type="text" formControlName="category"  class="form-control" id="category">
+    </div>
+    <div class="form-group">
+      <label for="thumbnail">thumbnail</label>
+      <input type="text" formControlName="thumbnail" class="form-control" id="thumbnail">
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>
+
+{{productForm.value|json}}
