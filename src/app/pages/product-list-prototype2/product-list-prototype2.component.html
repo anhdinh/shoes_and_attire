@@ -9,7 +9,7 @@
     <ng-template #productTpl>
       <div #data class="product-items">
         <div class="row">
-          <div *ngFor="let product of productsPerPage" class="col-xl-3 mt-3">
+          <div *ngFor="let product of productsPerPage" class="col-xl-3 mt-5">
             <app-single-product [product] = "product"></app-single-product>
           </div>
         </div>
@@ -22,7 +22,7 @@
             <a class="page-link" href="#" tabindex="-1">Previous</a>
           </li>
           <li *ngFor="let page of pagesNumber" class="page-item">
-            <a class="page-link" [ngClass]="{'disabled':page==currentPage}"
+            <a class="page-link" [ngClass]="{'disabled':page===currentPage}"
                (click)="getProductByPageNumber(page)">{{page}}
             </a></li>
           <li class="page-item">

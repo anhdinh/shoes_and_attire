@@ -5,12 +5,14 @@
   </div>
   <ng-container [ngTemplateOutlet]="productInfo"></ng-container>
   <ng-container [ngTemplateOutlet]="offInfo"></ng-container>
+  <ng-container *ngIf="product.stock===0" [ngTemplateOutlet]="stockLabel"></ng-container>
+
 </div>
 
 <!--product image-->
 <ng-template #productImg>
   <div class="product-image">
-    <img src="../assets/images/shoe-1.png" alt="shoes">
+    <img [src]="product.thumbnail" alt="shoes">
   </div>
 </ng-template>
 <!--product img end-->
@@ -27,17 +29,10 @@
     <div class="product-info-top">
       <h2 class="sm-title">Life Style</h2>
       <ng-container [ngTemplateOutlet]="ratingTpl"></ng-container>
-      .
     </div>
     <a href="#" class="product-name">{{product.title}}</a>
-    <p class="product-price">$ 150</p>
-    <p class="product-price">$ 130</p>
-  </div>
-</ng-template>
-
-<ng-template #offInfo>
-  <div class="off-info">
-    <h2 class="sm-title"> 25% off</h2>
+    <p [hidden]="product.discountPercentage==0"  class="product-price">$ {{product.price}}</p>
+    <p class="product-price">$ {{product|priceAfterSale}}</p>
   </div>
 </ng-template>
 
@@ -48,4 +43,18 @@
     </span>
   </div>
 </ng-template>
+
+<ng-template #offInfo>
+  <div *ngIf="product.discountPercentage" class="off-info">
+    <h2 class="sm-title"> {{product.discountPercentage}}% off</h2>
+  </div>
+</ng-template>
+
+<ng-template #stockLabel>
+  <div  class="stock-label">
+    <h2 class="sm-title">Out of Stock</h2>
+  </div>
+</ng-template>
+
+
 

@@ -16,6 +16,7 @@ import { ProductListPrototype2Component } from './pages/product-list-prototype2/
 import { SingleProductComponent } from './pages/product-list-prototype2/single-product/single-product.component';
 import {ProductService} from "./services/product.service";
 import {HttpClientModule} from "@angular/common/http";
+import { PriceAfterSalePipe } from './pipes/price-after-sale.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {HttpClientModule} from "@angular/common/http";
     ProductListPrototype1Component,
     FooterComponent,
     ProductListPrototype2Component,
-    SingleProductComponent
+    SingleProductComponent,
+    PriceAfterSalePipe
   ],
   imports: [
     BrowserModule,

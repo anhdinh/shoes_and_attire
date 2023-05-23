@@ -7,15 +7,21 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ProductService {
-  private  url ='https://dummyjson.com/products';
+
+  private url = "http://localhost:8080/product";
   constructor(private http: HttpClient) { }
 
-
   getProducts(page:number,pageSize:number): Observable<ProductResponse> {
-    const limit = pageSize;
-    const skip = (page-1)*pageSize;
-    const url =  this.url+"?limit="+limit +"&skip="+skip;
-    return this.http.get<ProductResponse>(url);
+    const productsUrl = new URL(this.url);
+    productsUrl.searchParams.append('page',String(page));
+    productsUrl.searchParams.append('pageSize',String(pageSize));
+    return this.http.get<ProductResponse>(productsUrl.href);
   }
+
+  createProduct(productModel:any):Observable<ProductModel>{
+    return this.http.post<any>(this.url,productModel);
+  }
+
+
 
 }

@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ProductModel} from "../../../services/model/ProductModel";
+import {PriceAfterSalePipe} from "../../../pipes/price-after-sale.pipe";
 
 @Component({
   selector: 'app-single-product',

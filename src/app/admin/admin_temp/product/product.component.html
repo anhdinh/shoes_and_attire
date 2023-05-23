@@ -2,47 +2,80 @@
 
 <div class="container">
   <div class="row"><h1>Product</h1></div>
+
+  <!--validate massages-->
+  <div *ngIf="!productForm.valid&&productForm.touched">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Holy Shit!</strong> You should check in on some of those fields below.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+
+  <!--productForm-->
   <form [formGroup]="productForm">
+
+    <!--title-->
     <div class="form-group">
       <label for="title">title</label>
-      <input type="text" class="form-control" formControlName="title" id="title">
+      <input type="text" [ngClass]="{'is-invalid':!productForm.get('title')?.valid&&productForm.touched}" class="form-control" formControlName="title" id="title">
     </div>
+
+    <!--description-->
     <div class="form-group">
       <label for="description">description</label>
       <input type="text" class="form-control" formControlName="description" id="description">
     </div>
+
+    <!--price-->
     <div class="form-group">
-      <label for="discountPercentage">Discount Percentage</label>
-      <input type="number" max="100" min="0" class="form-control" formControlName="discountPercentage" id="discountPercentage">
+      <label for="price">Price</label>
+      <input type="number"  [ngClass]="{'is-invalid':!productForm.get('price')?.valid&&productForm.touched}" class="form-control" formControlName="price" id="price">
     </div>
+
+    <!--discountPercentage-->
     <div class="form-group">
-      <label for="ratting">ratting</label>
-      <select id="ratting" formControlName="ratting" class="form-control w-25 justify-content-end">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
+      <label for="discountPercentage">Discount Percentage : {{productForm.get("discountPercentage")?.value}}%</label>
+      <input type="range" class="form-control form-range w-25" value="0"  min="0" max="100"  step="1" id="discountPercentage" formControlName="discountPercentage">
     </div>
+
+    <!--Ratting-->
+    <div class="form-group">
+      <label for="ratting">ratting
+        {{productForm.get("ratting")?.value}}
+        star<span *ngIf="productForm.get('ratting')?.value>1">s</span>
+      </label>
+      <input type="range" value="0" class="form-control form-range w-25" min="0" max="5" step="1" formControlName="ratting" id="ratting">
+
+    </div>
+
+    <!--stock-->
     <div class="form-group">
       <label for="stock">stock</label>
-      <input type="number"  formControlName="stock" class="form-control" id="stock">
+      <input type="number" value="0" [ngClass]="{'is-invalid':!productForm.get('stock')?.valid&&productForm.touched}"  formControlName="stock" class="form-control" id="stock">
     </div>
+
+    <!--brand-->
     <div class="form-group">
       <label for="brand">brand</label>
       <input type="text" formControlName="brand"   class="form-control" id="brand">
     </div>
+
+    <!--category-->
     <div class="form-group">
       <label for="category">category</label>
       <input type="text" formControlName="category"  class="form-control" id="category">
     </div>
+
+    <!--thumbnail-->
     <div class="form-group">
       <label for="thumbnail">thumbnail</label>
       <input type="text" formControlName="thumbnail" class="form-control" id="thumbnail">
     </div>
-    <button type="submit" class="btn btn-primary">Add</button>
+
+    <!--submit btn-->
+
+    <button type="submit" (click)="onSummit()" class="btn btn-primary mt-3">Add</button>
+
   </form>
 </div>
 
-{{productForm.value|json}}
