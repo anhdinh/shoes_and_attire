@@ -1,31 +1,46 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {HomeComponent} from "./pages/home.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {MainContainerComponent} from "./index/main-container.component";
+import {HomeComponent} from "./index/pages/home-page/home.component";
+import {ProductDetailComponent} from "./index/pages/product-detail/product-detail.component";
 import {LoginComponent} from "./guard/login/login.component";
-import {ProductComponent} from "./admin/admin_temp/product/product.component";
+
 
 const routes: Routes = [
   {
-    path:"home",
-    component:HomeComponent
+    path: "",
+    redirectTo: "home",
+    pathMatch: "full"
   },
   {
-    path:"admin",
+    path: "",
+    component: MainContainerComponent,
+    children: [
+      {
+        path: "home",
+        component: HomeComponent
+      },
+      {
+        path: "product-detail",
+        component: ProductDetailComponent
+      }
+    ],
+
+  },
+  {
+    path: "admin",
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {
-    path:"login",
-    component:LoginComponent
-  },
-  {
-    path:"",
-    redirectTo:"home",
-    pathMatch:"full"
+    path: "login",
+    component: LoginComponent
   }
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

@@ -1,10 +1,11 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {ProductService} from "../../services/product.service";
-import {ProductModel, ProductResponse} from "../../services/model/ProductModel";
+
 import {delay, timeout} from "rxjs";
+import {ProductModel, ProductResponse} from "../../../../services/model/ProductModel";
+import {ProductService} from "../../../../services/product.service";
 
 @Component({
-  selector: 'app-product-list-prototype2',
+  selector: 'app-product-list-home',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })

@@ -4,11 +4,10 @@ export const dbConfig: DBConfig  = {
   name: 'MyDb',
   version: 1,
   objectStoresMeta: [{
-    store: 'people',
+    store: 'data-local',
     storeConfig: { keyPath: 'id', autoIncrement: true },
     storeSchema: [
-      { name: 'name', keypath: 'name', options: { unique: false } },
-      { name: 'email', keypath: 'email', options: { unique: false } }
+      { name: 'is-login', keypath: 'is-login', options: { unique: false } },
     ]
   }]
 };
