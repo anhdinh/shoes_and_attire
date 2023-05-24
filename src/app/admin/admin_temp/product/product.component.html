@@ -16,7 +16,7 @@
 
     <!--title-->
     <div class="form-group">
-      <label for="title">title</label>
+      <label for="title">title(at least 3 characters)</label>
       <input type="text" [ngClass]="{'is-invalid':!productForm.get('title')?.valid&&productForm.touched}" class="form-control" formControlName="title" id="title">
     </div>
 
@@ -28,7 +28,7 @@
 
     <!--price-->
     <div class="form-group">
-      <label for="price">Price</label>
+      <label for="price">Price (Required field)</label>
       <input type="number"  [ngClass]="{'is-invalid':!productForm.get('price')?.valid&&productForm.touched}" class="form-control" formControlName="price" id="price">
     </div>
 

@@ -19,7 +19,7 @@ export class ProductComponent implements OnInit {
   productForm :FormGroup    = new FormGroup({
     title:this.title,
     description:new FormControl(''),
-    price:new FormControl('',[Validators.min(0)]),
+    price:new FormControl('',[Validators.required,Validators.min(0)]),
     discountPercentage:new FormControl('',[Validators.max(max_discount_percentage),Validators.min(min_discount_percentage)]),
     ratting:new FormControl('',[Validators.max(max_vote_star),Validators.min(min_vote_star)]),
     stock:new FormControl('',Validators.min(0)),

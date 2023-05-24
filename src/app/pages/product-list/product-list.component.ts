@@ -5,10 +5,10 @@ import {delay, timeout} from "rxjs";
 
 @Component({
   selector: 'app-product-list-prototype2',
-  templateUrl: './product-list-prototype2.component.html',
-  styleUrls: ['./product-list-prototype2.component.css']
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
 })
-export class ProductListPrototype2Component implements OnInit{
+export class ProductListComponent implements OnInit{
   length = 0;
   productsPerPage:ProductModel[] =[];
   pageSize = 8;
@@ -23,13 +23,12 @@ export class ProductListPrototype2Component implements OnInit{
   }
 
   getProducts(page:number,pageSize:number){
-    this.productService.getProducts(page,pageSize).subscribe(productResponse=>{
+    this.productService.getProducts(page,pageSize).pipe(delay(200)).subscribe(productResponse=>{
       this.handleProductList(productResponse);
     })
   }
 
   handleProductList(productRes:ProductResponse){
-    this.isLoadingData = true;
     this.length=productRes.total;
     this.productsPerPage = productRes.products;
     this.isLoadingData=false;
@@ -37,6 +36,7 @@ export class ProductListPrototype2Component implements OnInit{
   }
 
   getProductByPageNumber(page: number) {
+    this.isLoadingData=true;
     this.currentPage=page;
     this.getProducts(this.currentPage,this.pageSize);
   }

@@ -10,13 +10,12 @@ import { LoginComponent } from './guard/login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxIndexedDBModule} from "ngx-indexed-db";
 import {dbConfig} from "./configs/local-data-configs";
-import { ProductListPrototype1Component } from './pages/product-list-prototype1/product-list-prototype1.component';
 import { FooterComponent } from './pages/footer/footer.component';
-import { ProductListPrototype2Component } from './pages/product-list-prototype2/product-list-prototype2.component';
-import { SingleProductComponent } from './pages/product-list-prototype2/single-product/single-product.component';
 import {ProductService} from "./services/product.service";
 import {HttpClientModule} from "@angular/common/http";
 import { PriceAfterSalePipe } from './pipes/price-after-sale.pipe';
+import {SingleProductComponent} from "./pages/product-list/single-product/single-product.component";
+import {ProductListComponent} from "./pages/product-list/product-list.component";
 
 @NgModule({
   declarations: [
@@ -25,9 +24,8 @@ import { PriceAfterSalePipe } from './pipes/price-after-sale.pipe';
     HomeComponent,
     SlidesComponent,
     LoginComponent,
-    ProductListPrototype1Component,
     FooterComponent,
-    ProductListPrototype2Component,
+    ProductListComponent,
     SingleProductComponent,
     PriceAfterSalePipe
   ],
