@@ -40,5 +40,6 @@ export class ProductListComponent implements OnInit{
     this.isLoadingData=true;
     this.currentPage=page;
     this.getProducts(this.currentPage,this.pageSize);
+    document.getElementById('product-items')?.scrollIntoView()
   }
 }

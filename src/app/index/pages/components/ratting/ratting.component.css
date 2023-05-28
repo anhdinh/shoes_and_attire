@@ -1,0 +1,14 @@
+i{
+  font-size: 32px;
+  color: #40c9a2;
+}
+
+button{
+  margin-top: 1rem;
+  display: block
+}
+
+.vote_panel{
+  display: flex;
+  justify-content: center;
+}

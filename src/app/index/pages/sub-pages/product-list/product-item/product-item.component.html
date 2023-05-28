@@ -30,7 +30,7 @@
       <h2 class="sm-title">Life Style</h2>
       <ng-container [ngTemplateOutlet]="ratingTpl"></ng-container>
     </div>
-    <a href="#" class="product-name">{{product.title}}</a>
+    <a [routerLink]="['/product',product.id]" class="product-name">{{product.title}}</a>
     <p [hidden]="product.discountPercentage==0"  class="product-price">$ {{product.price}}</p>
     <p class="product-price">$ {{product|priceAfterSale}}</p>
   </div>

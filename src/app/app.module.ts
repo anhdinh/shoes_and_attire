@@ -17,6 +17,7 @@ import {ProductDetailComponent} from "./index/pages/product-detail/product-detai
 import {MainContainerComponent} from "./index/main-container.component";
 import {ProductItemComponent} from "./index/pages/sub-pages/product-list/product-item/product-item.component";
 import {FooterComponent} from "./index/footer/footer.component";
+import { RattingComponent } from './index/pages/components/ratting/ratting.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {FooterComponent} from "./index/footer/footer.component";
     ProductItemComponent,
     PriceAfterSalePipe,
     ProductDetailComponent,
-    MainContainerComponent
+    MainContainerComponent,
+    RattingComponent
   ],
   imports: [
     BrowserModule,

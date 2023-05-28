@@ -7,7 +7,7 @@
       </div>
     </ng-template>
     <ng-template #productTpl>
-      <div #data class="product-items">
+      <div id="product-items" class="product-items">
         <div class="row">
           <div *ngFor="let product of productsPerPage" class="col-xl-3 mt-5">
             <app-single-product [product] = "product"></app-single-product>

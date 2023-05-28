@@ -1,0 +1,11 @@
+<div class="vote_panel">
+  <div>
+  <ng-container *ngFor="let star of stars">
+    <i (click)="checkUnVoted(star)" (mouseover)="hover(star)" class="fa-star" [class.far]="!star.selected" [class.fas]="star.selected"></i>
+  </ng-container>
+    <button (click)="vote()" class="btn btn-success">Vote</button>
+  </div>
+
+</div>
+
+

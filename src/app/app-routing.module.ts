@@ -4,6 +4,7 @@ import {MainContainerComponent} from "./index/main-container.component";
 import {HomeComponent} from "./index/pages/home-page/home.component";
 import {ProductDetailComponent} from "./index/pages/product-detail/product-detail.component";
 import {LoginComponent} from "./guard/login/login.component";
+import {RattingComponent} from "./index/pages/components/ratting/ratting.component";
 
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: "product-detail",
+        path: "product/:id",
         component: ProductDetailComponent
       }
     ],
@@ -31,10 +32,15 @@ const routes: Routes = [
     path: "admin",
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
+
   {
     path: "login",
     component: LoginComponent
-  }
+  },
+  {
+    path: "ratingTest",
+    component:RattingComponent
+  },
 
 ];
 
