@@ -46,7 +46,7 @@
 
 <ng-template #offInfo>
   <div *ngIf="product.discountPercentage" class="off-info">
-    <h2 class="sm-title"> {{product.discountPercentage}}% off</h2>
+    <h2 class="sm-title"> {{product.discountPercentage|salePrecision}}% off</h2>
   </div>
 </ng-template>
 

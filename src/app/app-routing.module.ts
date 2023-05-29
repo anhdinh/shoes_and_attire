@@ -5,6 +5,7 @@ import {HomeComponent} from "./index/pages/home-page/home.component";
 import {ProductDetailComponent} from "./index/pages/product-detail/product-detail.component";
 import {LoginComponent} from "./guard/login/login.component";
 import {RattingComponent} from "./index/pages/components/ratting/ratting.component";
+import {CartComponent} from "./index/pages/cart/cart.component";
 
 
 const routes: Routes = [
@@ -24,7 +25,11 @@ const routes: Routes = [
       {
         path: "product/:id",
         component: ProductDetailComponent
-      }
+      },
+      {
+        path: "cart",
+        component:CartComponent
+      },
     ],
 
   },
@@ -36,16 +41,13 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent
-  },
-  {
-    path: "ratingTest",
-    component:RattingComponent
-  },
+  }
+
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

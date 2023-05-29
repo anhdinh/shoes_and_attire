@@ -1,11 +1,24 @@
-<div class="vote_panel">
-  <div>
-  <ng-container *ngFor="let star of stars">
-    <i (click)="checkUnVoted(star)" (mouseover)="hover(star)" class="fa-star" [class.far]="!star.selected" [class.fas]="star.selected"></i>
-  </ng-container>
-    <button (click)="vote()" class="btn btn-success">Vote</button>
+
+<div class="modal fade" id="ratingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Rating</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="vote_panel">
+          <div>
+            <ng-container *ngFor="let star of stars">
+              <i (click)="checkUnVoted(star)" (mouseover)="hover(star)" class="fa-star" [class.far]="!star.selected" [class.fas]="star.selected"></i>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="vote()" class="btn btn-success">Vote</button>
+      </div>
+    </div>
   </div>
-
 </div>
-
-

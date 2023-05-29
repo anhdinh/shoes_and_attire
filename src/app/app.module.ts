@@ -18,6 +18,9 @@ import {MainContainerComponent} from "./index/main-container.component";
 import {ProductItemComponent} from "./index/pages/sub-pages/product-list/product-item/product-item.component";
 import {FooterComponent} from "./index/footer/footer.component";
 import { RattingComponent } from './index/pages/components/ratting/ratting.component';
+import {SalePercentagePrecisionPipe} from './pipes/sale-percentage-pecision.pipe';
+import {NgOptimizedImage} from "@angular/common";
+import { CartComponent } from './index/pages/cart/cart.component';
 
 
 @NgModule({
@@ -33,7 +36,9 @@ import { RattingComponent } from './index/pages/components/ratting/ratting.compo
     PriceAfterSalePipe,
     ProductDetailComponent,
     MainContainerComponent,
-    RattingComponent
+    RattingComponent,
+    SalePercentagePrecisionPipe,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,7 @@ import { RattingComponent } from './index/pages/components/ratting/ratting.compo
     HttpClientModule,
     NgxIndexedDBModule.forRoot(dbConfig),
     AppRoutingModule,
+    NgOptimizedImage,
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
