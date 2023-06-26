@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {ProductComponent} from "./admin_temp/product/product.component";
+import {AdminMainComponent} from "./admin-main.component";
 
 const routes: Routes = [
     {
-      path:"product",
-      component:ProductComponent
+      path:"",
+      component:AdminMainComponent,
+      children:[
+        {
+          path:"product",
+          component:ProductComponent
+        }
+      ]
     }
 ];
 
